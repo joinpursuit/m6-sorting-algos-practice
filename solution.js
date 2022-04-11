@@ -1,7 +1,21 @@
 const { catArt, someNums, someProducts, someWords } = require("./data/data.js");
 
 // sort numbers in ascending order
-const sortNumsA = () => {};
+const sortNumsA = (array) => {
+  let swapped = true
+  while(swapped){
+    swapped = false
+    for(let i = 0; i < array.length; i++){
+      const first = array[i]
+      const next = array[i+1]
+      if(String(first) > String(next)){
+        [array[i], array[i+1]] = [next, first]
+        swapped = true
+      }
+    }
+  }
+  return array
+};
 
 // sort numbers in descending order
 const sortNumsD = () => {};
