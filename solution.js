@@ -1,13 +1,30 @@
 const { catArt, someNums, someProducts, someWords } = require("./data/data.js");
 
-// sort numbers in ascending order
-const sortNumsA = (nums) => {
-  nums = nums.map((num) => `${num}`)
+// sort numbers in ascending order (with strings in array)
+const sortNumsA = (numsA) => {
+  // numsA = numsA.map((num) => `${num}`)
+  let swapped = true
+  while (swapped) {
+    swapped = false
+    for (let i = 0; i < numsA.length; i++) {
+      if (`${numsA[i]}` > `${numsA[i+1]}`) {
+        let temp = numsA[i]
+        numsA[i] = numsA[i+1]
+        numsA[i+1] = temp
+        swapped = true
+      }
+    }
+  }
+  return numsA
+};
+
+// sort numbers in descending order (no strings in array)
+const sortNumsD = (nums) => {
   let swapped = true
   while (swapped) {
     swapped = false
     for (let i = 0; i < nums.length; i++) {
-      if (nums[i] > nums[i+1]) {
+      if (nums[i] < nums[i+1]) {
         let temp = nums[i]
         nums[i] = nums[i+1]
         nums[i+1] = temp
@@ -15,17 +32,42 @@ const sortNumsA = (nums) => {
       }
     }
   }
-  return nums.map((num) => +num)
+  return nums
 };
 
-// sort numbers in descending order
-const sortNumsD = () => {};
-
 // sort words in ascending order case sensitive
-const sortWordsA = () => {};
+const sortWordsA = (wordsA) => {
+  let swapped = true
+  while (swapped) {
+    swapped = false
+    for (let i = 0; i < wordsA.length; i++) {
+      if (wordsA[i] > wordsA[i+1]) {
+        let temp = wordsA[i]
+        wordsA[i] = wordsA[i+1]
+        wordsA[i+1] = temp
+        swapped = true
+      }
+    }
+  }
+  return wordsA
+};
 
 // sort words in descending order case insensitive
-const sortWordsD = () => {};
+const sortWordsD = (wordsD) => {
+  let swapped = true
+  while (swapped) {
+    swapped = false
+    for (let i = 0; i < wordsD.length; i++) {
+      if (wordsD[i].toLowerCase() < wordsD[i+1]?.toLowerCase()) {
+        let temp = wordsD[i]
+        wordsD[i] = wordsD[i+1]
+        wordsD[i+1] = temp
+        swapped = true
+      }
+    }
+  }
+  return wordsD
+};
 
 // sort products by name, ascending order case insensitive
 const sortProductNamesA = () => {};
