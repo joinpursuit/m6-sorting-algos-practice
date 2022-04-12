@@ -75,7 +75,7 @@ const sortProductNamesA = (productNamesA) => {
   while (swapped) {
     swapped = false
     for (let i = 0; i < productNamesA.length; i++) {
-      if (productNamesA[i].name.toLowerCase() > productNamesA[i+1]?.name.toLowerCase()) {
+      if (productNamesA[i].name.toLowerCase() > (productNamesA[i+1] && productNamesA[i+1].name.toLowerCase())) {
         let temp = productNamesA[i]
         productNamesA[i] = productNamesA[i+1]
         productNamesA[i+1] = temp
@@ -92,7 +92,7 @@ const sortProductPriceA = (productPriceA) => {
   while (swapped) {
     swapped = false
     for (let i = 0; i < productPriceA.length; i++) {
-      if (productPriceA[i].price > productPriceA[i+1]?.price) {
+      if (productPriceA[i].price > (productPriceA[i+1] && productPriceA[i+1].price)) {
         let temp = productPriceA[i]
         productPriceA[i] = productPriceA[i+1]
         productPriceA[i+1] = temp
@@ -109,7 +109,7 @@ const sortProductPriceD = (productPriceD) => {
   while (swapped) {
     swapped = false
     for (let i = 0; i < productPriceD.length; i++) {
-      if (productPriceD[i].price < productPriceD[i+1]?.price) {
+      if (productPriceD[i].price < (productPriceD[i+1] && productPriceD[i+1].price)) {
         let temp = productPriceD[i]
         productPriceD[i] = productPriceD[i+1]
         productPriceD[i+1] = temp
@@ -127,14 +127,14 @@ const sortProducsPriceNameA = (productPriceName) => {
   while (swapped) {
     swapped = false
     for (let i = 0; i < productPriceName.length; i++) {
-      if (productPriceName[i].price > productPriceName[i+1]?.price) {
+      if (productPriceName[i].price > (productPriceName[i+1] && productPriceName[i+1].price)) {
         let temp = productPriceName[i]
         productPriceName[i] = productPriceName[i+1]
         productPriceName[i+1] = temp
         swapped = true
       }
     }
-    // if (productPriceName[i].name.toLowerCase() > productPriceName[i+1]?.name.toLowerCase()) {
+    // if (productPriceName[i].name.toLowerCase() > (productPriceName[i+1] && productPriceName[i+1].name.toLowerCase())) {
     //   let temp = productPriceName[i]
     //   productPriceName[i] = productPriceName[i+1]
     //   productPriceName[i+1] = temp
@@ -150,7 +150,7 @@ const catArtSortDesginedByA = (designedByA) => {
   while (swapped) {
     swapped = false
     for (let i = 0; i < designedByA.length; i++) {
-      if (designedByA[i].designedBy > designedByA[i+1]?.designedBy) {
+      if (designedByA[i].designedBy > (designedByA[i+1] && designedByA[i+1].designedBy)) {
         let temp = designedByA[i]
         designedByA[i] = designedByA[i+1]
         designedByA[i+1] = temp
@@ -167,11 +167,11 @@ const catArtSortByPriceA = (priceA) => {
   while (swapped) {
     swapped = false
     for (let i = 0; i < priceA.length; i++) {
-      let [first, second] = [priceA[i].price, priceA[i+1]?.price]
+      let [first, second] = [priceA[i].price, priceA[i+1] && priceA[i+1].price]
       if (typeof first === "string" && first.includes("♇")) {
         first = priceA[i].price.slice(2) * 10
       }
-      if (typeof second === "string" && second?.includes("♇")) {
+      if (typeof second === "string" && (second && second.includes("♇"))) {
         second = priceA[i+1].price.slice(2) * 10
       }
       if (+first > +second) {
