@@ -70,13 +70,55 @@ const sortWordsD = (wordsD) => {
 };
 
 // sort products by name, ascending order case insensitive
-const sortProductNamesA = () => {};
+const sortProductNamesA = (productNamesA) => {
+  let swapped = true
+  while (swapped) {
+    swapped = false
+    for (let i = 0; i < productNamesA.length; i++) {
+      if (productNamesA[i].name.toLowerCase() > productNamesA[i+1]?.name.toLowerCase()) {
+        let temp = productNamesA[i]
+        productNamesA[i] = productNamesA[i+1]
+        productNamesA[i+1] = temp
+        swapped = true
+      }
+    }
+  }
+  return productNamesA
+};
 
 // sort products by price, ascending order
-const sortProductPriceA = () => {};
+const sortProductPriceA = (productPriceA) => {
+  let swapped = true
+  while (swapped) {
+    swapped = false
+    for (let i = 0; i < productPriceA.length; i++) {
+      if (productPriceA[i].price > productPriceA[i+1]?.price) {
+        let temp = productPriceA[i]
+        productPriceA[i] = productPriceA[i+1]
+        productPriceA[i+1] = temp
+        swapped = true
+      }
+    }
+  }
+  return productPriceA
+};
 
 // sort products by price, descending order
-const sortProductPriceD = () => {};
+const sortProductPriceD = (productPriceD) => {
+  let swapped = true
+  while (swapped) {
+    swapped = false
+    for (let i = 0; i < productPriceD.length; i++) {
+      if (productPriceD[i].price < productPriceD[i+1]?.price) {
+        let temp = productPriceD[i]
+        productPriceD[i] = productPriceD[i+1]
+        productPriceD[i+1] = temp
+        swapped = true
+      }
+    }
+  }
+  return productPriceD
+};
 
 // sort products by price, then by name, ascending order
 const sortProducsPriceNameA = () => {};
