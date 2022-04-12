@@ -1,5 +1,9 @@
 const { catArt, someNums, someProducts, someWords } = require("./data/data.js");
 
+const swap = (arr, index1, index2) => {
+  [arr[index1], arr[index2]] = [arr[index2], arr[index1]];
+};
+
 // sort numbers in ascending order
 const sortNumsA = () => {};
 
