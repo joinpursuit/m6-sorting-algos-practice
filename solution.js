@@ -22,7 +22,21 @@ const sortNumsA = (someNums) => {
 };
 
 // sort numbers in descending order
-const sortNumsD = () => {};
+const sortNumsD = (someNums) => {
+  let swapped = true;
+  while (swapped) {
+    // when it is true, the while loop will run
+    swapped = false; // we want to check whether we're going to swap or not
+    for (let i = 0; i < someNums.length - 1; i++) {
+      if (someNums[i] < someNums[i + 1]) {
+        // checking
+        swap(someNums, i, i + 1);
+        swapped = true; //
+      }
+    }
+  }
+  return someNums;
+};
 
 // sort words in ascending order case sensitive
 const sortWordsA = () => {};
