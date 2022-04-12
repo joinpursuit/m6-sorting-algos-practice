@@ -5,7 +5,21 @@ const swap = (arr, index1, index2) => {
 };
 
 // sort numbers in ascending order
-const sortNumsA = () => {};
+const sortNumsA = (someNums) => {
+  let swapped = true;
+  while (swapped) {
+    // when it is true, the while loop will run
+    swapped = false; // we want to check whether we're going to swap or not
+    for (let i = 0; i < someNums.length - 1; i++) {
+      if (someNums[i].toString() > someNums[i + 1].toString()) {
+        // checking
+        swap(someNums, i, i + 1);
+        swapped = true; //
+      }
+    }
+  }
+  return someNums;
+};
 
 // sort numbers in descending order
 const sortNumsD = () => {};
