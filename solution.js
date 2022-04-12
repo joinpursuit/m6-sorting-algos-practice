@@ -58,7 +58,7 @@ const sortWordsD = (wordsD) => {
   while (swapped) {
     swapped = false
     for (let i = 0; i < wordsD.length; i++) {
-      if (wordsD[i].toLowerCase() < wordsD[i+1]?.toLowerCase()) {
+      if (wordsD[i].toLowerCase() < wordsD[i+1] && wordsD[i+1].toLowerCase()) {
         let temp = wordsD[i]
         wordsD[i] = wordsD[i+1]
         wordsD[i+1] = temp
