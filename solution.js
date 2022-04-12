@@ -121,13 +121,69 @@ const sortProductPriceD = (productPriceD) => {
 };
 
 // sort products by price, then by name, ascending order
-const sortProducsPriceNameA = () => {};
+const sortProducsPriceNameA = (productPriceName) => {
+ 
+  let swapped = true
+  while (swapped) {
+    swapped = false
+    for (let i = 0; i < productPriceName.length; i++) {
+      if (productPriceName[i].price > productPriceName[i+1]?.price) {
+        let temp = productPriceName[i]
+        productPriceName[i] = productPriceName[i+1]
+        productPriceName[i+1] = temp
+        swapped = true
+      }
+    }
+    // if (productPriceName[i].name.toLowerCase() > productPriceName[i+1]?.name.toLowerCase()) {
+    //   let temp = productPriceName[i]
+    //   productPriceName[i] = productPriceName[i+1]
+    //   productPriceName[i+1] = temp
+    //   swapped = true
+    // }
+  }
+  return productPriceName
+};
 
 // sort catArt by designed by
-const catArtSortDesginedByA = () => {};
+const catArtSortDesginedByA = (designedByA) => {
+  let swapped = true
+  while (swapped) {
+    swapped = false
+    for (let i = 0; i < designedByA.length; i++) {
+      if (designedByA[i].designedBy > designedByA[i+1]?.designedBy) {
+        let temp = designedByA[i]
+        designedByA[i] = designedByA[i+1]
+        designedByA[i+1] = temp
+        swapped = true
+      }
+    }
+  }
+  return designedByA
+};
 
 // sort catArt by price
-const catArtSortByPriceA = () => {};
+const catArtSortByPriceA = (priceA) => {
+  let swapped = true
+  while (swapped) {
+    swapped = false
+    for (let i = 0; i < priceA.length; i++) {
+      let [first, second] = [priceA[i].price, priceA[i+1]?.price]
+      if (typeof first === "string" && first.includes("♇")) {
+        first = priceA[i].price.slice(2) * 10
+      }
+      if (typeof second === "string" && second?.includes("♇")) {
+        second = priceA[i+1].price.slice(2) * 10
+      }
+      if (+first > +second) {
+        let temp = priceA[i]
+        priceA[i] = priceA[i+1]
+        priceA[i+1] = temp
+        swapped = true
+      }
+    }
+  }
+  return priceA
+};
 
 // Create your own sort function
 // it should sort in ascending order
