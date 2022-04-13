@@ -99,7 +99,22 @@ const sortProductPriceA = (someProducts) => {
 };
 
 // sort products by price, descending order
-const sortProductPriceD = () => {};
+const sortProductPriceD = (someProducts) => {
+  let swapped = true;
+  while (swapped) {
+    // when it is true, the while loop will run
+    swapped = false; // we want to check whether we're going to swap or not
+    for (let i = 0; i < someProducts.length - 1; i++) {
+      // console.log(someProducts[0].price);
+      if (someProducts[i].price < someProducts[i + 1].price) {
+        // checking
+        swap(someProducts, i, i + 1);
+        swapped = true; //
+      }
+    }
+  }
+  return someProducts;
+};
 
 // sort products by price, then by name, ascending order
 const sortProducsPriceNameA = () => {};
