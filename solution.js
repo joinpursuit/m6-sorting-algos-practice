@@ -182,7 +182,20 @@ const converter = (price) => {
 // or try to implement merge sort
 // or look up another common sort algorithm (i.e. quicksort, ) and try your own implementation
 // Bonus add another argument that would allow the function to be used for ascending or descending order
-const mySortFunction = () => {};
+const mySortFunction = (words) => {
+  let swapped = true;
+
+  while(swapped){
+    swapped = false;
+    for(let i = 0; i < words.length - 1; i++){
+      if(words[i] > words[i+1]){
+        swapped = true;
+        [words[i], words[i+1]] = [words[i + 1], words[i]]
+      } 
+    }
+  }
+  return words;
+};
 
 module.exports = {
   sortNumsA,
