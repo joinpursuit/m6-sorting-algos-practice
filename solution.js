@@ -121,10 +121,8 @@ const sortProductPriceD = (products) => {
 
 // sort products by price, then by name, ascending order
 const sortProducsPriceNameA = (products) => {
-  // console.log(products);
+  sortProductNamesA(products);
   sortProductPriceA(products);
-  // sortProductNamesA(products);
-  // console.log(products);
   return products;
 };
 
