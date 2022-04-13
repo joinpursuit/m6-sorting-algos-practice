@@ -117,12 +117,40 @@ const sortProductPriceD = (someProducts) => {
 };
 
 // sort products by price, then by name, ascending order
-const sortProducsPriceNameA = () => {};
+const sortProducsPriceNameA = (someProducts) => {
+  // let swapped = true;
+  // while (swapped) {
+  //   swapped = false;
+  //   for (let i = 0; i < someProducts.length - 1; i++) {
+  //     if (someProducts[i].price > someProducts[i + 1].price) {
+  //       swap(someProducts, i, i + 1);
+  //       swapped = true;
+  //     } else if (someProducts[i].price === someProducts[i + 1].price) {
+  //       if (someProducts[i].name > someProducts[i + 1].name)
+  //         swap(someProducts, i, i + 1);
+  //       swapped = true;
+  //     }
+  //   }
+  // }
+  // return someProducts;
+};
 
-// sort catArt by designed by
-const catArtSortDesginedByA = () => {};
+// sort catArt by designedBy in ascending order:
+const catArtSortDesginedByA = (catArt) => {
+  let swapped = true;
+  while (swapped) {
+    swapped = false;
+    for (let i = 0; i < catArt.length - 1; i++) {
+      if (catArt[i].designedBy > catArt[i + 1].designedBy) {
+        swap(catArt, i, i + 1);
+        swapped = true;
+      }
+    }
+  }
+  return catArt;
+};
 
-// sort catArt by price
+// sort catArt by price in ascending order
 const catArtSortByPriceA = () => {};
 
 // Create your own sort function
