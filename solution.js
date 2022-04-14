@@ -147,24 +147,36 @@ const catArtSortDesginedByA = (arr) => {
   return arr;
 };
 
+//function to convert catArt Prices
+//the param string price
+const convert = (price) => {
+  //store the string price into a number price
+  let newPrice = Number(price);
+  //if the newPrice is not a number
+  if (Number.isNaN(newPrice)) {
+    //then the newPrice is now the string price made to a number and returns everything after the ♇♇ times 10
+    //(since each coin is $10)
+    newPrice = Number(price.substring(2)) * 10;
+  }
+  //then you want to return that price
+  return newPrice;
+};
+
 // sort catArt by price
 const catArtSortByPriceA = (arr) => {
-  console.log("91.97" > "♇♇7");
-  // console.log(arr.sort((a,b) => parseInt(a.price) - parseInt(b.price)))
-  //   let swapped = true;
+  let swapped = true;
 
-  //   while(swapped) {
-  //     swapped = false;
-  //     for (let i = 0; i< arr.length-1; i++ ) {
-
-  //       if (Number(arr[i].price) > Number(arr[i+1].price)){
-  //          swap(arr, i, i+1)
-  //          swapped = true;
-  //       }
-  //     }
-  //   }
-  //  console.log("Sorted: ", arr)
-  // return arr
+  while (swapped) {
+    swapped = false;
+    for (let i = 0; i < arr.length - 1; i++) {
+      //use convert inside of our if statement
+      if (convert(arr[i].price) > convert(arr[i + 1].price)) {
+        swap(arr, i, i + 1);
+        swapped = true;
+      }
+    }
+  }
+  return arr;
 };
 
 // Create your own sort function
