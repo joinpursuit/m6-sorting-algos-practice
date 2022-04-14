@@ -24,7 +24,7 @@ const {
 describe("Sorting Practice", () => {
   test("Sort numbers in ascending order", () => {
     expect(sortNumsA(someNums)).toStrictEqual([
-      0, 1, 10, 2, 3, 4, 5, 6, 7, 8, 9,
+      0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
     ]);
   });
   test("Sort numbers in descending order", () => {
@@ -47,7 +47,7 @@ describe("Sorting Practice", () => {
   });
   test("Sort words in descending order case insensitive", () => {
     expect(sortWordsD(someWords)).toStrictEqual([
-      "The",
+      "The", 
       "the",
       "quick",
       "over",
