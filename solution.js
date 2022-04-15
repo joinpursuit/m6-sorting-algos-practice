@@ -204,7 +204,7 @@ const catArtSortByPriceA = (array) => {
 // or try to implement merge sort
 // or look up another common sort algorithm (i.e. quicksort, ) and try your own implementation
 // Bonus add another argument that would allow the function to be used for ascending or descending order
-const mySortFunction = (array) => {
+const mySortFunction = (array, order) => {
   let swapped = true;
  console.log(array[0])
   if (typeof (array[0]) === "number") {
@@ -216,7 +216,7 @@ const mySortFunction = (array) => {
       if (array[i] > array[i + 1]) {
         swap(array, i, i + 1);     
         swapped = true;      
-      }
+      } 
     }
   } 
 } else if (typeof array[0] === "string") {
@@ -232,7 +232,8 @@ const mySortFunction = (array) => {
       }
     }
   }
-  return array
+  
+  return !order ? array : array.reverse()
 };
 
 module.exports = {
