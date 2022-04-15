@@ -135,10 +135,26 @@ const catArtSortDesginedByA = (arr) => {
   return arr;
 };
 
-
 // sort catArt by price
-const catArtSortByPriceA = (arr) => {
+const convertPrice = (price) => {
+  let newPrice = Number(price);
+  if (Number.isNaN(newPrice)) {
+    return Number(price.slice(2)) * 10;
+  }
+  return newPrice;
+};
 
+const catArtSortByPriceA = (arr) => {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length - 1; j++) {
+      if (convertPrice(arr[j].price) > convertPrice(arr[j + 1].price)) {
+        let temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+      }
+    }
+  }
+  return arr;
 };
 
 // Create your own sort function
