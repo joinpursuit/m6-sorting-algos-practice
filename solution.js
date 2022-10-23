@@ -68,7 +68,7 @@ const sortWordsD = (arr) => {
   return arr;
 };
 
-// sort products by name, ascending order case insensitive
+// sort products by name, #ICUcopiedMe ascending order case insensitive
 const sortProductNamesA = (arr) => {
   let didISwap = true;
   while (didISwap) {
@@ -85,7 +85,7 @@ const sortProductNamesA = (arr) => {
   return arr;
 };
 
-// sort products by price, ascending order
+// sort products by price, #ICUcopiedMe ascending order 
 const sortProductPriceA = (arr) => {
   let didISwap = true;
   while (didISwap) {
@@ -119,7 +119,7 @@ const sortProductPriceD = (arr) => {
   return arr;
 };
 
-// sort products by price, then by name, ascending order
+// sort products by price, then by name,#ICUcopiedMe ascending order
 const sortProducsPriceNameA = (arr) => {
   let didISwap = true;
   while (didISwap) {
@@ -193,7 +193,21 @@ const catArtSortByPriceA = (arr) => {
 // or try to implement merge sort
 // or look up another common sort algorithm (i.e. quicksort, ) and try your own implementation
 // Bonus add another argument that would allow the function to be used for ascending or descending order
-const mySortFunction = () => {};
+const mySortFunction = (arr) => {
+  let didISwap = true;
+  while (didISwap) {
+    didISwap = false;
+    for (let i = 0; i < arr.length - 1; i++) {
+      if (arr[i] > arr[i + 1]) {
+        didISwap = true;
+        let temp = arr[i + 1];
+        arr[i + 1] = arr[i];
+        arr[i] = temp;
+      }
+    }
+  }
+  return arr;
+};
 
 module.exports = {
   sortNumsA,
