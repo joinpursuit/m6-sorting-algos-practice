@@ -35,19 +35,89 @@ const sortNumsD = (arr) => {
 };
 
 // sort words in ascending order case sensitive
-const sortWordsA = () => {};
+const sortWordsA = (arr) => {
+  let didISwap = true;
+  while (didISwap) {
+    didISwap = false;
+    for (let i = 0; i < arr.length - 1; i++) {
+      if (arr[i] > arr[i + 1]) {
+        didISwap = true;
+        let temp = arr[i + 1];
+        arr[i + 1] = arr[i];
+        arr[i] = temp;
+      }
+    }
+  }
+  return arr;
+};
 
 // sort words in descending order case insensitive
-const sortWordsD = () => {};
+const sortWordsD = (arr) => {
+  let didISwap = true;
+  while (didISwap) {
+    didISwap = false;
+    for (let i = 0; i < arr.length - 1; i++) {
+      if (arr[i].toLowerCase() < arr[i + 1].toLowerCase()) {
+        didISwap = true;
+        let temp = arr[i + 1];
+        arr[i + 1] = arr[i];
+        arr[i] = temp;
+      }
+    }
+  }
+  return arr;
+};
 
 // sort products by name, ascending order case insensitive
-const sortProductNamesA = () => {};
+const sortProductNamesA = (arr) => {
+  let didISwap = true;
+  while (didISwap) {
+    didISwap = false;
+    for (let i = 0; i < arr.length - 1; i++) {
+      if (arr[i].name.toLowerCase() > arr[i + 1].name.toLowerCase()) {
+        didISwap = true;
+        let temp = arr[i + 1];
+        arr[i + 1] = arr[i];
+        arr[i] = temp;
+      }
+    }
+  }
+  return arr;
+};
 
 // sort products by price, ascending order
-const sortProductPriceA = () => {};
+const sortProductPriceA = (arr) => {
+  let didISwap = true;
+  while (didISwap) {
+    didISwap = false;
+    for (let i = 0; i < arr.length - 1; i++) {
+      if (arr[i].price > arr[i + 1].price) {
+        didISwap = true;
+        let temp = arr[i + 1];
+        arr[i + 1] = arr[i];
+        arr[i] = temp;
+      }
+    }
+  }
+  return arr;
+};
 
 // sort products by price, descending order
-const sortProductPriceD = () => {};
+const sortProductPriceD = (arr) => {
+  let didISwap = true;
+  while (didISwap) {
+    didISwap = false;
+    for (let i = 0; i < arr.length - 1; i++) {
+      if (arr[i].price < arr[i + 1].price) {
+        didISwap = true;
+        let temp = arr[i + 1];
+        arr[i + 1] = arr[i];
+        arr[i] = temp;
+      }
+    }
+  }
+  return arr;
+};
 
 // sort products by price, then by name, ascending order
 const sortProducsPriceNameA = () => {};
