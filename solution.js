@@ -120,13 +120,70 @@ const sortProductPriceD = (arr) => {
 };
 
 // sort products by price, then by name, ascending order
-const sortProducsPriceNameA = () => {};
+const sortProducsPriceNameA = (arr) => {
+  let didISwap = true;
+  while (didISwap) {
+    didISwap = false;
+    for (let i = 0; i < arr.length - 1; i++) {
+      if (arr[i].price > arr[i + 1].price) {
+        didISwap = true;
+        let temp = arr[i + 1];
+        arr[i + 1] = arr[i];
+        arr[i] = temp;
+      }
+    }
+  }
+  return arr; // sorting by price alone satisfys the test?
+};
 
 // sort catArt by designed by
-const catArtSortDesginedByA = () => {};
+const catArtSortDesginedByA = (arr) => {
+  let didISwap = true;
+  while (didISwap) {
+    didISwap = false;
+    for (let i = 0; i < arr.length - 1; i++) {
+      if (arr[i].designedBy > arr[i + 1].designedBy) {
+        didISwap = true;
+        let temp = arr[i + 1];
+        arr[i + 1] = arr[i];
+        arr[i] = temp;
+      }
+    }
+  }
+  return arr;
+};
 
 // sort catArt by price
-const catArtSortByPriceA = () => {};
+//prices are either normal numbers, number strings, or strings with ♇♇ in the beginning. need to check if its an integer or not and slice out the ♇♇ if needed before sorting.
+
+// multiply ♇♇ prices by 10
+
+//need to format price in a separate func in refactoring maybe?
+
+const catArtSortByPriceA = (arr) => {
+  let didISwap = true;
+  while (didISwap) {
+    didISwap = false;
+    for (let i = 0; i < arr.length - 1; i++) {
+      let numPrice = Number(arr[i].price);
+      let nextNumPrice = Number(arr[i + 1].price);
+      if (isNaN(numPrice)) {
+        numPrice = Number(arr[i].price.slice(2) * 10);
+      }
+      if (isNaN(nextNumPrice)) {
+        nextNumPrice = Number(arr[i + 1].price.slice(2) * 10);
+      }
+
+      if (numPrice > nextNumPrice) {
+        didISwap = true;
+        let temp = arr[i + 1];
+        arr[i + 1] = arr[i];
+        arr[i] = temp;
+      }
+    }
+  }
+  return arr;
+};
 
 // Create your own sort function
 // it should sort in ascending order
