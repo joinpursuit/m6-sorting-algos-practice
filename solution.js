@@ -193,6 +193,8 @@ const catArtSortByPriceA = (arr) => {
 // or try to implement merge sort
 // or look up another common sort algorithm (i.e. quicksort, ) and try your own implementation
 // Bonus add another argument that would allow the function to be used for ascending or descending order
+
+//bubble sort for now. will try merge sort soon
 const mySortFunction = (arr) => {
   let didISwap = true;
   while (didISwap) {
