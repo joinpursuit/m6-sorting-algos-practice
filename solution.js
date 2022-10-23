@@ -1,10 +1,38 @@
-const { catArt, someNums, someProducts, someWords } = require("./data/data.js");
+const { catArt, someNums, someProducts, someWords } = require('./data/data.js');
 
 // sort numbers in ascending order
-const sortNumsA = () => {};
+const sortNumsA = (arr) => {
+  let didISwap = true;
+  while (didISwap) {
+    didISwap = false;
+    for (let i = 0; i < arr.length - 1; i++) {
+      if (arr[i].toString() > arr[i + 1].toString()) {
+        didISwap = true;
+        let temp = arr[i + 1];
+        arr[i + 1] = arr[i];
+        arr[i] = temp;
+      }
+    }
+  }
+  return arr;
+};
 
 // sort numbers in descending order
-const sortNumsD = () => {};
+const sortNumsD = (arr) => {
+  let didISwap = true;
+  while (didISwap) {
+    didISwap = false;
+    for (let i = 0; i < arr.length - 1; i++) {
+      if (arr[i] < arr[i + 1]) {
+        didISwap = true;
+        let temp = arr[i + 1];
+        arr[i + 1] = arr[i];
+        arr[i] = temp;
+      }
+    }
+  }
+  return arr;
+};
 
 // sort words in ascending order case sensitive
 const sortWordsA = () => {};
