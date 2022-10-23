@@ -147,10 +147,11 @@ const catArtSortDesginedByA = (array) => {
 
 // sort catArt by price
 const convertToMeowa = (price) => {
-  if(Number.isNaN(price)){
-    price = price.slice(2)
-    return (Number(price) * 10)
+  if(Number.isNaN(Number(price))){
+    // price = price.slice(2)
+    return (Number(price.slice(2)) * 10)
   }
+  return Number(price)
 }
 
 const catArtSortByPriceA = (array) => {
@@ -175,9 +176,22 @@ const catArtSortByPriceA = (array) => {
 // create your own sort algorithm
 // or try to implement bubble sort
 // or try to implement merge sort
-// or look up another common sort algorithm (i.e. quicksort, ) and try your own implementation
+// or l quicksort, ) ook up another common sort algorithm (i.e.and try your own implementation
 // Bonus add another argument that would allow the function to be used for ascending or descending order
-const mySortFunction = () => {};
+const mySortFunction = (array) => {
+  let unswapped = true;
+
+  while(unswapped){
+    unswapped = false;
+    for(let i = 0; i < array.length-1; i++){
+      if(array[i] > array[i + 1]){
+        [array[i], array[i +1]] = [array[i+1], array[i]]
+        unswapped = true
+      }
+    }
+  }
+  return array
+};
 
 module.exports = {
   sortNumsA,
