@@ -1,28 +1,134 @@
 const { catArt, someNums, someProducts, someWords } = require("./data/data.js");
 
 // sort numbers in ascending order
-const sortNumsA = () => {};
+const sortNumsA = (array) => {
+  let unsorted  = true
+
+  while (unsorted){
+      unsorted = false;
+      for (let i = 0; i < array.length-1; i++){
+          if (array[i] > array[i+1]){
+              [array[i], array[i+1]] = [array[i+1], array[i]]
+              unsorted = true;
+          }
+      }
+  }
+  return array
+
+};
 
 // sort numbers in descending order
-const sortNumsD = () => {};
+const sortNumsD = (array) => {
+  let unsorted  = true
+
+  while (unsorted){
+      unsorted = false
+      for (let i = 0; i < array.length-1; i++){
+          if (array[i] < array[i+1]){
+              [array[i], array[i+1]] = [array[i+1], array[i]]
+              unsorted = true
+          }
+      }
+  }
+  return array;
+
+};
 
 // sort words in ascending order case sensitive
-const sortWordsA = () => {};
+const sortWordsA = (wordsArr) => {
+  let unsorted  = true
+
+  while (unsorted){
+      unsorted = false;
+      for (let i = 0; i < wordsArr.length-1; i++){
+          if (wordsArr[i] > wordsArr[i+1]){
+              [wordsArr[i], wordsArr[i+1]] = [wordsArr[i+1], wordsArr[i]]
+              unsorted = true;
+          }
+      }
+  }
+  return wordsArr;
+};
 
 // sort words in descending order case insensitive
-const sortWordsD = () => {};
+const sortWordsD = (wordsArr) => {
+  let unsorted  = true
+
+  while (unsorted){
+      unsorted = false;
+      for (let i = 0; i < wordsArr.length-1; i++){
+          if (wordsArr[i].toUpperCase() < wordsArr[i+1].toUpperCase()){
+              [wordsArr[i], wordsArr[i+1]] = [wordsArr[i+1], wordsArr[i]]
+              unsorted = true;
+          }
+      }
+  }
+  return wordsArr;
+};
 
 // sort products by name, ascending order case insensitive
-const sortProductNamesA = () => {};
+const sortProductNamesA = (products) => {
+  let unsorted  = true
+
+  while (unsorted){
+      unsorted = false;
+      for (let i = 0; i < products.length-1; i++){
+          if (products[i].name > products[i+1].name){
+              [products[i], products[i+1]] = [products[i+1], products[i]]
+              unsorted = true;
+          }
+      }
+  }
+  return products;
+};
 
 // sort products by price, ascending order
-const sortProductPriceA = () => {};
+const sortProductPriceA = (products) => {
+  let unsorted  = true
+
+  while (unsorted){
+      unsorted = false;
+      for (let i = 0; i < products.length-1; i++){
+          if (products[i].price > products[i+1].price){
+              [products[i], products[i+1]] = [products[i+1], products[i]]
+              unsorted = true;
+          }
+      }
+  }
+  return products;
+};
 
 // sort products by price, descending order
-const sortProductPriceD = () => {};
+const sortProductPriceD = (products) => {
+  let unsorted  = true
+
+  while (unsorted){
+      unsorted = false;
+      for (let i = 0; i < products.length-1; i++){
+          if (products[i].price < products[i+1].price){
+              [products[i], products[i+1]] = [products[i+1], products[i]]
+              unsorted = true;
+          }
+      }
+  }
+  return products;
+};
 
 // sort products by price, then by name, ascending order
-const sortProducsPriceNameA = () => {};
+const sortProducsPriceNameA = (products) => {
+  let unsorted  = true
+
+  while (unsorted){
+      unsorted = false;
+      for (let i = 0; i < products.length-1; i++){
+          if (products[i].price > products[i+1].price){
+              [products[i], products[i+1]] = [products[i+1], products[i]]
+              unsorted = true;
+          }
+      }
+  }
+  return products;
+};
 
 // sort catArt by designed by
 const catArtSortDesginedByA = () => {};
