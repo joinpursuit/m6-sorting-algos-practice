@@ -1,10 +1,36 @@
 const { catArt, someNums, someProducts, someWords } = require("./data/data.js");
 
 // sort numbers in ascending order
-const sortNumsA = () => {};
+const sortNumsA = (array) => {
+  let unsorted = true;
+  while(unsorted) {
+    unsorted = false;
+
+    for(let i = 0; i < array.length-1; i++) {
+      if(array[i] > array[i + 1]) {
+        [array[i], array[i + 1]] = [array[i + 1], array[i]];
+        unsorted = true;
+      }
+    }
+  }
+  return array;
+};
 
 // sort numbers in descending order
-const sortNumsD = () => {};
+const sortNumsD = (array) => {
+  let unsorted = true;
+  while(unsorted) {
+    unsorted = false;
+
+    for(let i = 0; i < array.length-1; i++) {
+      if(array[i] < array[i + 1]) {
+        [array[i], array[i + 1]] = [array[i + 1], array[i]];
+        unsorted = true;
+      }
+    }
+  }
+  return array;
+};
 
 // sort words in ascending order case sensitive
 const sortWordsA = () => {};
