@@ -116,7 +116,7 @@ const sortProductPriceD = (products) => {
 
 // sort products by price, then by name, ascending order
 const sortProducsPriceNameA = (products) => {
-  let unsorted  = true
+  let unsorted  = true;
 
   while (unsorted){
       unsorted = false;
@@ -124,6 +124,11 @@ const sortProducsPriceNameA = (products) => {
           if (products[i].price > products[i+1].price){
               [products[i], products[i+1]] = [products[i+1], products[i]]
               unsorted = true;
+          } else if (products[i].price === products[i + 1].price) {
+            if (products[i].name.toUpperCase() > products[i + 1].name.toUpperCase()) {
+                [products[i], products[i+1]] = [products[i+1], products[i]]
+                unsorted = true;
+            }
           }
       }
   }
@@ -131,10 +136,36 @@ const sortProducsPriceNameA = (products) => {
 };
 
 // sort catArt by designed by
-const catArtSortDesginedByA = () => {};
+const catArtSortDesginedByA = (cart) => {
+    let unsorted  = true
+
+  while (unsorted){
+      unsorted = false;
+      for (let i = 0; i < cart.length-1; i++){
+          if (cart[i].designedBy > cart[i+1].designedBy){
+              [cart[i], cart[i+1]] = [cart[i+1], cart[i]]
+              unsorted = true;
+          }
+      }
+  }
+  return cart;
+};
 
 // sort catArt by price
-const catArtSortByPriceA = () => {};
+const catArtSortByPriceA = (art) => {
+    let unsorted  = true
+
+    while (unsorted){
+        unsorted = false;
+        for (let i = 0; i < art.length-1; i++){
+            if (art[i].price > art[i+1].price){
+                [art[i], art[i+1]] = [art[i+1], art[i]]
+                unsorted = true;
+            }
+        }
+    }
+    return art;
+};
 
 // Create your own sort function
 // it should sort in ascending order
@@ -144,7 +175,20 @@ const catArtSortByPriceA = () => {};
 // or try to implement merge sort
 // or look up another common sort algorithm (i.e. quicksort, ) and try your own implementation
 // Bonus add another argument that would allow the function to be used for ascending or descending order
-const mySortFunction = () => {};
+const mySortFunction = (data) => {
+    let mySorting  = true
+
+  while (mySorting){
+      mySorting = false;
+      for (let i = 0; i < data.length-1; i++){
+          if (data[i] > data[i+1]){
+              [data[i], data[i+1]] = [data[i+1], data[i]]
+              mySorting = true;
+          }
+      }
+  }
+  return data;
+};
 
 module.exports = {
   sortNumsA,
