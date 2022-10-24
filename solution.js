@@ -59,11 +59,11 @@ const sortProductPriceD = (someProducts) => {
 // sort products by price, then by name, ascending order
 const sortProducsPriceNameA = (someProducts) => {
   //price
-   return someProducts.sort(function (a, b) {
+  return someProducts.sort(function (a, b) {
     if (a.price > b.price) return 1;
     if (a.price < b.price) return -1;
     return 0;
-  })
+  });
 };
 
 // sort catArt by designed by
@@ -72,61 +72,23 @@ const catArtSortDesginedByA = (catArt) => {
     if (a.designedBy > b.designedBy) return 1;
     if (a.designedBy < b.designedBy) return -1;
     return 0;
-  })
+  });
 };
 
-// sort catArt by price
-// const catArtSortByPriceA = (catArt) => {
-
-  const convertToMeowa = (price) => {
-    if(Number.isNaN(Number(price))){
-      // price = price.slice(2)
-      return (Number(price.slice(2)) * 10) 
-    }
-    return Number(price)
+const convertCoin = (price) => {
+  if (Number.isNaN(Number(price))) {
+    return Number(price.slice(2)) * 10;
   }
-  
-  const catArtSortByPriceA = (catArt) => {
-    return catArt.sort(function (a, b) {
-      if (convertToMeowa(a.price) > convertToMeowa(b.price) ) return 1;
-      if (convertToMeowa(a.price) < convertToMeowa(b.price) ) return -1;
-      return 0;
-    })
-  };
+  return Number(price);
+};
 
-
-// for (let i = 0; i < catArt.length; i++) {
-//   if (typeof catArt[i].price !== "number" ) {// if its not a number 
-//     //loop the string. so we can MAYBE covert the string into a number. or add the price with the SYMBOL.
-
-  
-//   }
-
-//   // console.log(catArt[i].price)
-// }
-
-
-
-  //if (♇  + 10 price. )// you need to loop that .price string. 
-  //temp price - so we can keep track of the convertion of the current ♇♇ string that we are looping through. 
-  // might also needs to turn into a number so, we can compare. 
-  //on the return - do we need to change back the symbol????;
-
-//if price is a number - we can just compare. 
-// else if price is NOT A NUMBR we need to LOOP the "price string" - and do the CONVERTION - if possible. 
-
-// console.log(  Number(catArt[2].price === "number"))// can use this to check if its a number. 
-// console.log(catArt[1].price)
-
-  // console.log(
-  //   catArt.sort(function (a, b) {
-  //     if (a.price > b.price) return -1;
-  //     if (a.price < b.price) return 1;
-  //     return 0;
-  //   })
-  // ) 
-
-// };
+const catArtSortByPriceA = (catArt) => {
+  return catArt.sort(function (a, b) {
+    if (convertCoin(a.price) > convertCoin(b.price)) return 1;
+    if (convertCoin(a.price) < convertCoin(b.price)) return -1;
+    return 0;
+  });
+};
 
 // Create your own sort function
 // it should sort in ascending order
@@ -136,7 +98,19 @@ const catArtSortDesginedByA = (catArt) => {
 // or try to implement merge sort
 // or look up another common sort algorithm (i.e. quicksort, ) and try your own implementation
 // Bonus add another argument that would allow the function to be used for ascending or descending order
-const mySortFunction = (catArt) => {};
+const mySortFunction = (array) => {
+  let unsorted = true;
+  while (unsorted) {
+    unsorted = false;
+    for (let i = 0; i < array.length - 1; i++) {
+      if (array[i] > array[i + 1]) {
+        [array[i], array[i + 1]] = [array[i + 1], array[i]];
+        unsorted = true;
+      }
+    }
+  }
+  return array;
+};
 
 module.exports = {
   sortNumsA,
