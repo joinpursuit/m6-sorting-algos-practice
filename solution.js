@@ -6,7 +6,7 @@ const sortNumsA = (arr) => {
   while (didISwap) {
     didISwap = false;
     for (let i = 0; i < arr.length - 1; i++) {
-      if (arr[i].toString() > arr[i + 1].toString()) {
+      if (arr[i] > arr[i + 1]) {
         didISwap = true;
         let temp = arr[i + 1];
         arr[i + 1] = arr[i];
@@ -85,7 +85,7 @@ const sortProductNamesA = (arr) => {
   return arr;
 };
 
-// sort products by price, #ICUcopiedMe ascending order 
+// sort products by price, #ICUcopiedMe ascending order
 const sortProductPriceA = (arr) => {
   let didISwap = true;
   while (didISwap) {
