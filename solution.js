@@ -2,21 +2,21 @@ const { catArt, someNums, someProducts, someWords } = require("./data/data.js");
 
 // sort numbers in ascending order
 const sortNumsA = (nums) => {
-  // let isSorted = false;
-  // while (!isSorted) {
-  //   isSorted = true;
-  //   for (let i = 0; i < nums.length - 1; i++) {
-  //     if (nums[i] > nums[i + 1]) {
-  //       isSorted = false;
-  //       let temp = nums[i];
-  //       nums[i] = nums[i + 1];
-  //       nums[i + 1] = temp;
-  //     }
-  //   }
-  // }
+  let isSorted = false;
+  while (!isSorted) {
+    isSorted = true;
+    for (let i = 0; i < nums.length - 1; i++) {
+      if (nums[i] > nums[i + 1]) {
+        isSorted = false;
+        let temp = nums[i];
+        nums[i] = nums[i + 1];
+        nums[i + 1] = temp;
+      }
+    }
+  }
 
   //since in the test 10 comes before 2, so I assume it is sort by char order
-  return nums.sort();
+  return nums;
 };
 
 // sort numbers in descending order
