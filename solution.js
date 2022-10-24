@@ -74,12 +74,18 @@ const catArtSortDesginedByA = (array) => {
 
 // sort catArt by price
 const catArtSortByPriceA = (array) => {
-  let sorted = array.sort((a, b) => {
-    isNaN(a.price) ? (a.price = a.price[2] * 10) : parseInt(a.price);
-    isNaN(b.price) ? (b.price = b.price[2] * 10) : parseInt(b.price);
-    return a.price - b.price;
-  });
-  return sorted;
+  let mapped = array
+    .map((e) => {
+      let sortablePrice = isNaN(e.price)
+        ? Number(e.price[2]) * 10
+        : Number(e.price);
+      return { ...e, sortablePrice };
+    })
+    .sort((a, b) => a.sortablePrice - b.sortablePrice)
+    .map(({ sortablePrice, ...rest }) => {
+      return rest;
+    });
+  return mapped;
 };
 
 // Create your own sort function
