@@ -82,7 +82,7 @@ const sortProductNamesA = (someProducts) => {
     return someProducts;
   }
 };
-console.log(sortProductNamesA(someProducts));
+//console.log(sortProductNamesA(someProducts));
 // sort products by price, ascending order
 const sortProductPriceA = (someProducts) => {
   do {
@@ -100,19 +100,84 @@ const sortProductPriceA = (someProducts) => {
   {
     return someProducts;
   }
-};
+}; //console.log(sortProductPriceA(someProducts));
 
 // sort products by price, descending order
-const sortProductPriceD = () => {};
-
+const sortProductPriceD = (someProducts) => {
+  do {
+    swapped = false;
+    for (let i = 0; i < someProducts.length - 1; i++) {
+      if (someProducts[i].price < someProducts[i + 1].price) {
+        [someProducts[i], someProducts[i + 1]] = [
+          someProducts[i + 1],
+          someProducts[i],
+        ];
+        swapped = true;
+      }
+    }
+  } while (swapped);
+  {
+    return someProducts;
+  }
+};
+//console.log(sortProductPriceD(someProducts));
 // sort products by price, then by name, ascending order
-const sortProducsPriceNameA = () => {};
-
+const sortProducsPriceNameA = (someProducts) => {
+  do {
+    swapped = false;
+    for (let i = 0; i < someProducts.length - 1; i++) {
+      if (
+        someProducts[i].price > someProducts[i + 1].price /*&&
+        someProducts[i].name.toUpperCase() >
+          someProducts[i + 1].name.toUpperCase() */
+      ) {
+        [someProducts[i], someProducts[i + 1]] = [
+          someProducts[i + 1],
+          someProducts[i],
+        ];
+        swapped = true;
+      }
+    }
+  } while (swapped);
+  {
+    return someProducts;
+  }
+};
+//console.log(sortProducsPriceNameA(someProducts));
 // sort catArt by designed by
-const catArtSortDesginedByA = () => {};
+const catArtSortDesginedByA = (catArt) => {
+  do {
+    swapped = false;
+    for (let i = 0; i < catArt.length - 1; i++) {
+      if (
+        catArt[i].designedBy.toUpperCase() >
+        catArt[i + 1].designedBy.toUpperCase()
+      ) {
+        [catArt[i], catArt[i + 1]] = [catArt[i + 1], catArt[i]];
+        swapped = true;
+      }
+    }
+  } while (swapped);
+  {
+    return catArt;
+  }
+};
 
 // sort catArt by price
-const catArtSortByPriceA = () => {};
+const catArtSortByPriceA = (catArt) => {
+  do {
+    swapped = false;
+    for (let i = 0; i < catArt.length - 1; i++) {
+      if (parseInt(catArt[i].price) > parseInt(catArt[i + 1].price)) {
+        [catArt[i], catArt[i + 1]] = [catArt[i + 1], catArt[i]];
+        swapped = true;
+      }
+    }
+  } while (swapped);
+  {
+    return catArt;
+  }
+};
 
 // Create your own sort function
 // it should sort in ascending order
@@ -122,7 +187,22 @@ const catArtSortByPriceA = () => {};
 // or try to implement merge sort
 // or look up another common sort algorithm (i.e. quicksort, ) and try your own implementation
 // Bonus add another argument that would allow the function to be used for ascending or descending order
-const mySortFunction = () => {};
+const mySortFunction = (someNums) => {
+  let sorted = true;
+  while (sorted) {
+    sorted = false;
+    for (let i = 0; i < someNums.length - 1; i++) {
+      if (someNums[i] > someNums[i + 1]) {
+        sorted = true;
+        let tempBucket = someNums[i];
+        someNums[i] = someNums[i + 1];
+        someNums[i + 1] = tempBucket;
+      }
+    }
+  }
+  return someNums;
+};
+//console.log(mySortFunction(someNums));
 
 module.exports = {
   sortNumsA,
