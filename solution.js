@@ -2,7 +2,7 @@ const { catArt, someNums, someProducts, someWords } = require("./data/data.js");
 
 // sort numbers in ascending order
 const sortNumsA = (nums) => {
-  return nums.sort();
+  return nums.sort((a, b) => a - b);
 };
 
 // sort numbers in descending order
