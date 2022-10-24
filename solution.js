@@ -2,16 +2,22 @@ const { catArt, someNums, someProducts, someWords } = require("./data/data.js");
 
 // sort numbers in ascending order
 const sortNumsA = (someNums) => {
-  return someNums.sort();
+  return someNums.sort((a, b) => {
+    if (a > b) {
+      return 1;
+    } else {
+      return -1;
+    }
+  });
 };
 
 // sort numbers in descending order
 const sortNumsD = (someNums) => {
   return someNums.sort((a, b) => {
-    if (a > b) {
-      return -1;
-    } else {
+    if (a < b) {
       return 1;
+    } else {
+      return -1;
     }
   });
 };
