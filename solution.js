@@ -153,12 +153,21 @@ const catArtSortDesginedByA = (cart) => {
 
 // sort catArt by price
 const catArtSortByPriceA = (art) => {
+    const converter = (price) => {
+        if(typeof price === "number"){
+          return price;
+        } else if(price * 1 == price){
+            return price;
+        }else {
+          return price.split('').splice(2).join() * 10
+        }
+      }
     let unsorted  = true
 
     while (unsorted){
         unsorted = false;
         for (let i = 0; i < art.length-1; i++){
-            if (art[i].price > art[i+1].price){
+            if (converter(art[i].price) > converter(art[i+1].price)){
                 [art[i], art[i+1]] = [art[i+1], art[i]]
                 unsorted = true;
             }
