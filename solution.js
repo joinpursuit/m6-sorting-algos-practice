@@ -113,7 +113,20 @@ const sortProductPriceD = (array) => {
 };
 
 // sort products by price, then by name, ascending order
-const sortProducsPriceNameA = () => {};
+const sortProducsPriceNameA = (array) => {
+  let unsorted = true;
+  while (unsorted) {
+    unsorted = false;
+
+    for (let i = 0; i < array.length - 1; i++) {
+      if (array[i].price > array[i + 1].price) {
+        [array[i], array[i + 1]] = [array[i + 1], array[i]];
+        unsorted = true;
+      }
+    }
+  }
+  return array;
+};
 
 // sort catArt by designed by
 const catArtSortDesginedByA = (array) => {
@@ -132,7 +145,21 @@ const catArtSortDesginedByA = (array) => {
 };
 
 // sort catArt by price
-const catArtSortByPriceA = () => {};
+const catArtSortByPriceA = (array) => {
+  let unsorted = true;
+  while (unsorted) {
+    unsorted = false;
+
+    for (let i = 0; i < array.length - 1; i++) {
+      // console.log(array[i].price)
+      if (array[i].price > array[i + 1].price) {
+        [array[i], array[i + 1]] = [array[i + 1], array[i]];
+        unsorted = true;
+      }
+    }
+  }
+  return array;
+};
 
 // Create your own sort function
 // it should sort in ascending order
