@@ -73,6 +73,7 @@ const catArtSortDesginedByA = (array) => {
 };
 
 // sort catArt by price
+//mapped with new variable Sortable Price, sorted by that variable and mapped again to remove.
 const catArtSortByPriceA = (array) => {
   let mapped = array
     .map((e) => {
