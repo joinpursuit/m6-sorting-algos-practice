@@ -91,7 +91,19 @@ const sortProductPriceA = (someProducts) => {
 };
 
 // sort products by price, descending order
-const sortProductPriceD = () => {};
+const sortProductPriceD = (someProducts) => {
+  let swapped = true;
+  while (swapped) {
+    swapped = false;
+    for (let i = 0; i < someProducts.length - 1; i++) {
+      if (someProducts[i].price < someProducts[i + 1].price) {
+        swap(someProducts, i, i + 1);
+        swapped = true;
+      }
+    }
+  }
+  return someProducts;
+};
 
 // sort products by price, then by name, ascending order
 const sortProducsPriceNameA = () => {};
