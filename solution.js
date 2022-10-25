@@ -1,7 +1,19 @@
 const { catArt, someNums, someProducts, someWords } = require("./data/data.js");
 
 // sort numbers in ascending order
-const sortNumsA = () => {};
+const sortNumsA = (someNums) => {
+  let swapped = true;
+  while (swapped) {
+    swapped = false;
+    for (let i = 0; i < someNums.length - 1; i++) {
+      if (someNums[i] > someNums[i + 1]) {
+        swap(someNums, i, i + 1);
+        swapped = true;
+      }
+    }
+  }
+  return someNums;
+};
 
 // sort numbers in descending order
 const sortNumsD = () => {};
@@ -39,6 +51,12 @@ const catArtSortByPriceA = () => {};
 // or look up another common sort algorithm (i.e. quicksort, ) and try your own implementation
 // Bonus add another argument that would allow the function to be used for ascending or descending order
 const mySortFunction = () => {};
+
+// Helper function
+
+const swap = (arr, index1, index2) => {
+  [arr[index1], arr[index2]] = [arr[index2], arr[index1]];
+};
 
 module.exports = {
   sortNumsA,
