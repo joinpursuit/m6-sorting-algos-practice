@@ -61,7 +61,19 @@ const sortWordsD = (someWords) => {
 };
 
 // sort products by name, ascending order case insensitive
-const sortProductNamesA = () => {};
+const sortProductNamesA = (someProducts) => {
+  let swapped = true;
+  while (swapped) {
+    swapped = false;
+    for (let i = 0; i < someProducts.length - 1; i++) {
+      if (someProducts[i].name > someProducts[i + 1].name) {
+        swap(someProducts, i, i + 1);
+        swapped = true;
+      }
+    }
+  }
+  return someProducts;
+};
 
 // sort products by price, ascending order
 const sortProductPriceA = () => {};
