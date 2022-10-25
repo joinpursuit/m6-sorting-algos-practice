@@ -2,17 +2,47 @@ const { catArt, someNums, someProducts, someWords } = require("./data/data.js");
 
 // sort numbers in ascending order
 const sortNumsA = (nums) => {
-  return nums.sort((a, b) => a - b);
+  let unsorted = true;
+  while (unsorted) {
+    unsorted = false;
+    for (let i = 0; i < nums.length - 1; i++) {
+      if (nums[i] > nums[i + 1]) {
+        [nums[i], nums[i + 1]] = [nums[i + 1], nums[i]];
+        unsorted = true;
+      }
+    }
+  }
+  return nums;
 };
 
 // sort numbers in descending order
 const sortNumsD = (nums) => {
-  return nums.sort((a, b) => b - a);
+  let unsorted = true;
+  while (unsorted) {
+    unsorted = false;
+    for (let i = 0; i < nums.length - 1; i++) {
+      if (nums[i] < nums[i + 1]) {
+        [nums[i], nums[i + 1]] = [nums[i + 1], nums[i]];
+        unsorted = true;
+      }
+    }
+  }
+  return nums;
 };
 
 // sort words in ascending order case sensitive
 const sortWordsA = (words) => {
-  return words.sort();
+  let unsorted = true;
+  while (unsorted) {
+    unsorted = false;
+    for (let i = 0; i < words.length - 1; i++) {
+      if (words[i] > words[i + 1]) {
+        [words[i], words[i + 1]] = [words[i + 1], words[i]];
+        unsorted = true;
+      }
+    }
+  }
+  return words;
 };
 
 // sort words in descending order case insensitive 
@@ -51,18 +81,37 @@ const sortProductNamesA = (products) => {
 
 // sort products by price, ascending order
 const sortProductPriceA = (products) => {
-  return products.sort((a, b) => a.price - b.price);
+  let unsorted = true;
+  while (unsorted) {
+    unsorted = false;
+    for (let i = 0; i < products.length - 1; i++) {
+      if (products[i]['price'] > products[i+1]['price']) {
+        [products[i], products[i+1]] = [products[i+1], products[i]];
+        unsorted = true;
+      }
+    }
+  }
+  return products;
 };
 
 // sort products by price, descending order
 const sortProductPriceD = (products) => {
-  return products.sort((a, b) => b.price - a.price);
+  let unsorted = true;
+  while (unsorted) {
+    unsorted = false;
+    for (let i = 0; i < products.length - 1; i++) {
+      if (products[i]['price'] < products[i+1]['price']) {
+        [products[i], products[i+1]] = [products[i+1], products[i]];
+        unsorted = true;
+      }
+    }
+  }
+  return products;
 };
 
 // sort products by price, then by name, ascending order
 const sortProducsPriceNameA = (data) => {
-  let sortedByPrice = data.sort((a, b) => a.price - b.price);
-  return sortedByPrice.sort((a, b) => b.name - a.name)
+  return sortProductPriceA(sortWordsA(data) )
 };
 
 // sort catArt by designed by 
@@ -98,7 +147,7 @@ const catArtSortByPriceA = (data) => {
     for (let i = 0; i < data.length - 1; i++) {
       if (checkPrice(data[i].price) > checkPrice(data[i + 1].price)) {
         isSorted = false;
-        [data[i], data[i+1]] = [data[i+1], data[i]];
+        [data[i], data[i + 1]] = [data[i + 1], data[i]];
       }
     }
   }
