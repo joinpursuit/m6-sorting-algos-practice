@@ -14,6 +14,7 @@ const sortNumsA = (nums) => {
 		}
 	}
 	return nums;
+	//  return nums.sort((a,b) => a-b)
 };
 
 // sort numbers in descending order
@@ -28,7 +29,8 @@ const sortNumsD = (nums) => {
 			}
 		}
 	}
-	return nums;
+		return nums
+	// return nums.sort((a,b) => b-a)
 };
 
 // sort words in ascending order case sensitive
@@ -44,6 +46,7 @@ const sortWordsA = (words) => {
 		}
 	}
 	return words;
+	// return words.sort()
 };
 
 // sort words in descending order case insensitive
@@ -60,6 +63,7 @@ const sortWordsD = (words) => {
 		}
 	}
 	return words;
+	
 };
 
 // sort products by name, ascending order case insensitive
