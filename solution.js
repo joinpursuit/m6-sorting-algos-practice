@@ -140,7 +140,21 @@ const catArtSortDesginedByA = (catArt) => {
 };
 
 // sort catArt by price
-const catArtSortByPriceA = () => {};
+const catArtSortByPriceA = (catArt) => {
+  let swapped = true;
+  while (swapped) {
+    swapped = false;
+    for (let i = 0; i < catArt.length - 1; i++) {
+      const currentPrice = priceConverter(catArt[i].price);
+      const NextPrice = priceConverter(catArt[i + 1].price);
+      if (currentPrice > NextPrice) {
+        swap(catArt, i, i + 1);
+        swapped = true;
+      }
+    }
+  }
+  return catArt;
+};
 
 // Create your own sort function
 // it should sort in ascending order
@@ -152,10 +166,18 @@ const catArtSortByPriceA = () => {};
 // Bonus add another argument that would allow the function to be used for ascending or descending order
 const mySortFunction = () => {};
 
-// Helper function
+// Helper functions
 
 const swap = (arr, index1, index2) => {
   [arr[index1], arr[index2]] = [arr[index2], arr[index1]];
+};
+
+const priceConverter = (price) => {
+  const newPrice = Number(price);
+  if (Number.isNaN(newPrice)) {
+    return Number(price.slice(2)) * 10;
+  }
+  return newPrice;
 };
 
 module.exports = {
