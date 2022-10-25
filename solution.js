@@ -125,7 +125,19 @@ const sortProducsPriceNameA = (someProducts) => {
 };
 
 // sort catArt by designed by
-const catArtSortDesginedByA = () => {};
+const catArtSortDesginedByA = (catArt) => {
+  let swapped = true;
+  while (swapped) {
+    swapped = false;
+    for (let i = 0; i < catArt.length - 1; i++) {
+      if (catArt[i].designedBy > catArt[i + 1].designedBy) {
+        swap(catArt, i, i + 1);
+        swapped = true;
+      }
+    }
+  }
+  return catArt;
+};
 
 // sort catArt by price
 const catArtSortByPriceA = () => {};
