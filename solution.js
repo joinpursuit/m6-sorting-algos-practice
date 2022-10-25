@@ -106,7 +106,23 @@ const sortProductPriceD = (someProducts) => {
 };
 
 // sort products by price, then by name, ascending order
-const sortProducsPriceNameA = () => {};
+const sortProducsPriceNameA = (someProducts) => {
+  let swapped = true;
+  while (swapped) {
+    swapped = false;
+    for (let i = 0; i < someProducts.length - 1; i++)
+      if (someProducts[i].price > someProducts[i + 1].price) {
+        swap(someProducts, i, i + 1);
+        swapped = true;
+      } else if (
+        someProducts[i].price === someProducts[i + 1].price &&
+        someProducts[i].name > someProducts[i + 1].name
+      ) {
+        swap(someProducts, i, i + 1);
+      }
+  }
+  return someProducts;
+};
 
 // sort catArt by designed by
 const catArtSortDesginedByA = () => {};
