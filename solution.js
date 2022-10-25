@@ -32,7 +32,7 @@ const sortNumsD = (arr) => {
   return arr;
 };
 
-// sort array of words in ascending order (case sensitive)
+//sort array of words in ascending order (case sensitive)
 const sortWordsA = (arr) => {
   let unsorted = true;
   while (unsorted) {
@@ -47,7 +47,7 @@ const sortWordsA = (arr) => {
   return arr;
 };
 
-// sort array of words in descending order (case insensitive)
+//sort array of words in descending order (case insensitive)
 const sortWordsD = (arr) => {
   let unsorted = true;
   while (unsorted) {
@@ -62,7 +62,7 @@ const sortWordsD = (arr) => {
   return arr;
 };
 
-// sort products by name, ascending order case insensitive
+//sort products by name, ascending order case insensitive
 const sortProductNamesA = (arr) => {
   let unsorted = true;
   while (unsorted) {
@@ -107,7 +107,7 @@ const sortProductPriceD = (arr) => {
   return arr;
 };
 
-// sort products by price, then by name, ascending order
+//sort products by price, then by name, ascending order
 const sortProducsPriceNameA = (arr) => {
   let unsorted = true;
   while (unsorted) {
@@ -122,7 +122,7 @@ const sortProducsPriceNameA = (arr) => {
   return arr;
 };
 
-// sort catArt by designed by
+//sort catArt by designed by
 const catArtSortDesginedByA = (arr) => {
   let unsorted = true;
   while (unsorted) {
@@ -141,6 +141,8 @@ const catArtSortDesginedByA = (arr) => {
 //First, create a helper function to convert the price from strings to numbers
 const formatPrice = (price) => {
   if (Number.isNaN(Number(price))) {
+    //If the price in cryto '♇♇3' format, we need to mulply by 10 to convert to USD
+    //Use slice() method to eliminate the crypto symbol ♇♇
     return Number(price.slice(2)) * 10;
   }
   return Number(price);
