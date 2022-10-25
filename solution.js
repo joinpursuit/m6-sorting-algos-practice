@@ -145,9 +145,25 @@ const catArtSortDesginedByA = (art) => {
 };
 
 // sort catArt by price
-const catArtSortByPriceA = (catArt) => {
-  // let unsorted = true;
-  // while (unsorted) {}
+const catArtSortByPriceA = (art) => {
+  const convertPrice = (price) => {
+    if (Number.isNaN(Number(price))) {
+      return Number(price.slice(2)) * 10;
+    }
+    return Number(price);
+  };
+
+  let unsorted = true;
+  while (unsorted) {
+    unsorted = false;
+    for (let i = 0; i < art.length - 1; i++) {
+      if (convertPrice(art[i].price) > convertPrice(art[i + 1].price)) {
+        [art[i], art[i + 1]] = [art[i + 1], art[i]];
+        unsorted = true;
+      }
+    }
+  }
+  return art;
 };
 
 // Create your own sort function
@@ -158,7 +174,19 @@ const catArtSortByPriceA = (catArt) => {
 // or try to implement merge sort
 // or look up another common sort algorithm (i.e. quicksort, ) and try your own implementation
 // Bonus add another argument that would allow the function to be used for ascending or descending order
-const mySortFunction = () => {};
+const mySortFunction = (input) => {
+  let unsorted = true;
+  while (unsorted) {
+    unsorted = false;
+    for (let i = 0; i < input.length - 1; i++) {
+      if (input[i] > input[i + 1]) {
+        [input[i], input[i + 1]] = [input[i + 1], input[i]];
+        unsorted = true;
+      }
+    }
+  }
+  return input;
+};
 
 module.exports = {
   sortNumsA,
