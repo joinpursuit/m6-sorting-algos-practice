@@ -188,7 +188,7 @@ const catArtSortDesginedByA = () => {
 };
 
 // sort catArt by price
-const catArtSortByPriceA = () => {
+const catArtSortByPriceA = (catArt) => {
   let sortAsc = true;
   // console.log(catArt[2].price.charAt(0))
   while (sortAsc) {
@@ -197,22 +197,12 @@ const catArtSortByPriceA = () => {
       let first = catArt[i].price;
       let next = catArt[i + 1].price;
 
-      // if(first === "♇♇3"){
-      //   first =  10 * parseFloat(first.slice(2))
-      //   // console.log(first)
-      // } else
-      // if(first === "♇♇5"){
-      //   first =  10 * parseFloat(first.slice(2))
-      //   // console.log(first)
-      // } else
-      // if(first === "♇♇7"){
-      //   first =  10 * parseFloat(first.slice(2))
-      //   // console.log(first)
-      // }
-      console.log(`${first} <--- at iteration ${i}
-        ${next} <---- at iteration ${i + 1}
-      `)
-       
+      let specialChar = first.toString().includes("♇♇");  
+
+      if(specialChar){
+      first = first.toString().replace(/[^0-9\.]/g, "") * 10;
+      }
+
       if (Number(first) > Number(next)) {
         [catArt[i], catArt[i + 1]] = [next, first]
         sortAsc = true;
@@ -223,7 +213,7 @@ const catArtSortByPriceA = () => {
   return catArt;
 };
 
-
+catArtSortByPriceA(catArt)
 
 // Create your own sort function
 // it should sort in ascending order
