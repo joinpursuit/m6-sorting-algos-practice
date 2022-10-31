@@ -21,7 +21,7 @@ const sortNumsA = (someNums) => {
   return someNums;
 };
 
-// sort numbers in descending order
+// sort numbers in descending order [ok]
 const sortNumsD = (someNums) => {
   
   // Implementing bubble sort
@@ -42,9 +42,24 @@ const sortNumsD = (someNums) => {
   return someNums;
 };
 
-// sort words in ascending order case sensitive
+// sort words in ascending order case sensitive [ok]
 const sortWordsA = (someWords) => {
-  return someWords.sort();
+
+  for (let i = 0; i < someWords.length; i++) {
+    for (let j = i + 1; j < someWords.length; j++) {
+      // Comparing the current element with the next
+      if (someWords[i] > someWords[j]) {
+        // If the current is greater, 
+        // We need to hold it in a temp variable
+        temp = someWords[i];
+        // Then proceed to switch values, assigning to the next the current greater
+        // And the current the next value
+        someWords[i] = someWords[j];
+        someWords[j] = temp;
+      }
+    }
+  }
+  return someWords;
 };
 
 // sort words in descending order case insensitive
