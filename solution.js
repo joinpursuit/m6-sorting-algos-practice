@@ -2,24 +2,65 @@ const { catArt, someNums, someProducts, someWords } = require("./data/data.js");
 
 // sort numbers in ascending order
 const sortNumsA = (someNums) => {
-  return someNums.sort((a,b) => a-b);
+  
+  // Implementing bubble sort
+  for (let i = 0; i < someNums.length; i++) {
+    for (let j = 0; j < someNums.length; j++) {
+      //
+      if (someNums[j] > someNums[j + 1]) {
+        let temp = someNums[j];
+        someNums[j] = someNums[j + 1];
+        someNums[j + 1] = temp;
+      }
+    }
+  }
+  return someNums;
 };
 
 // sort numbers in descending order
 const sortNumsD = (someNums) => {
-  return someNums.sort((a,b) => b-a);
+  
+  console.log(someNums)
+  // Implementing bubble sort
+  for (let i = 0; i < someNums.length; i++) {
+    for (let j = 0; j < someNums.length; j++) {
+      if (someNums[j] < someNums[j + 1]) {
+        let temp = someNums[j];
+        someNums[j] = someNums[j + 1];
+        someNums[j + 1] = temp;
+      }
+    }
+  }
+  console.log(someNums)
+  return someNums;
 };
 
 // sort words in ascending order case sensitive
 const sortWordsA = (someWords) => {
-  return someWords.sort((a,b) => a < b)
+  return someWords.sort();
 };
 
 // sort words in descending order case insensitive
-const sortWordsD = (someWords) => {};
+const sortWordsD = (someWords) => {
+  return someWords.sort((a, b) => {
+    if (a.toLowerCase() > b.toLowerCase()) {
+      return -1;
+    } else {
+      return 1;
+    }
+  });
+};
 
 // sort products by name, ascending order case insensitive
-const sortProductNamesA = () => {};
+const sortProductNamesA = (someProducts) => {
+  return someWords.sort((a,b) => {
+    let left = a.toUpperCase();
+    let right = b.toUpperCase();
+
+    return (left === right) ? 0 : left > right ? 1 : -1;
+  })
+    
+};
 
 // sort products by price, ascending order
 const sortProductPriceA = () => {};
