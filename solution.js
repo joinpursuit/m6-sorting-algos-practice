@@ -64,13 +64,25 @@ const sortWordsA = (someWords) => {
 
 // sort words in descending order case insensitive
 const sortWordsD = (someWords) => {
-  return someWords.sort((a, b) => {
-    if (a.toLowerCase() > b.toLowerCase()) {
-      return -1;
-    } else {
-      return 1;
+
+  for (let i = 0; i < someWords.length; i++) {
+    for (let j = i + 1; j < someWords.length; j++) {
+      // Assigning each word passing to caps into lower letters 
+      let a = someWords[i].toLowerCase();
+      let b = someWords[j].toLowerCase();
+
+      if (a < b) {
+        // If the current is greater, 
+        // We need to hold it in a temp variable
+        temp = someWords[i];
+        // Then proceed to switch values, assigning to the next the current greater
+        // And the current the next value
+        someWords[i] = someWords[j];
+        someWords[j] = temp;
+      }
     }
-  });
+  }
+  return someWords;  
 };
 
 // sort products by name, ascending order case insensitive
