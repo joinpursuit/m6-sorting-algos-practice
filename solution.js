@@ -101,12 +101,12 @@ const sortProductNamesA = (someProducts) => {
   return someProducts; 
 };
 
-// sort products by price, ascending order
+// sort products by price, ascending order [ok]
 const sortProductPriceA = (someProducts) => {
 
   for (let i = 0; i < someProducts.length; i++) {
     for (let j = i + 1; j < someProducts.length; j++) {
-      // Assigning each product name passing to caps into lower letters 
+      // Assigning each product price in order to perform comparisons 
       let a = someProducts[i].price;
       let b = someProducts[j].price;
       
@@ -117,12 +117,27 @@ const sortProductPriceA = (someProducts) => {
       }
     }
   }
-
   return someProducts;
 };
 
 // sort products by price, descending order
-const sortProductPriceD = () => {};
+const sortProductPriceD = () => {
+
+  for (let i = 0; i < someProducts.length; i++) {
+    for (let j = i + 1; j < someProducts.length; j++) {
+      // Assigning each product in order to perform comparisons
+      let a = someProducts[i].price;
+      let b = someProducts[j].price;
+      
+      if (a < b) {
+        temp = someProducts[i];
+        someProducts[i] = someProducts[j];
+        someProducts[j] = temp;
+      }
+    }
+  }
+  return someProducts;
+};
 
 // sort products by price, then by name, ascending order
 const sortProducsPriceNameA = () => {};
