@@ -1,16 +1,20 @@
 const { catArt, someNums, someProducts, someWords } = require("./data/data.js");
 
-// sort numbers in ascending order
+// sort numbers in ascending order [ok]
 const sortNumsA = (someNums) => {
   
   // Implementing bubble sort
   for (let i = 0; i < someNums.length; i++) {
-    for (let j = 0; j < someNums.length; j++) {
-      //
-      if (someNums[j] > someNums[j + 1]) {
-        let temp = someNums[j];
-        someNums[j] = someNums[j + 1];
-        someNums[j + 1] = temp;
+    for (let j = i + 1; j < someNums.length; j++) {
+      // Comparing the current element with the next
+      if (someNums[i] > someNums[j]) {
+        // If the current is greater, 
+        // We need to hold it in a temp variable
+        temp = someNums[i];
+        // Then proceed to switch values, assigning to the next the current greater
+        // And the current the next value
+        someNums[i] = someNums[j];
+        someNums[j] = temp;
       }
     }
   }
@@ -20,18 +24,21 @@ const sortNumsA = (someNums) => {
 // sort numbers in descending order
 const sortNumsD = (someNums) => {
   
-  console.log(someNums)
   // Implementing bubble sort
   for (let i = 0; i < someNums.length; i++) {
-    for (let j = 0; j < someNums.length; j++) {
-      if (someNums[j] < someNums[j + 1]) {
-        let temp = someNums[j];
-        someNums[j] = someNums[j + 1];
-        someNums[j + 1] = temp;
+    for (let j = i + 1; j < someNums.length; j++) {
+      // Comparing the current element with the next
+      if (someNums[i] < someNums[j]) {
+        // If the current is greater, 
+        // We need to hold it in a temp variable
+        temp = someNums[i];
+        // Then proceed to switch values, assigning to the next the current greater
+        // And the current the next value
+        someNums[i] = someNums[j];
+        someNums[j] = temp;
       }
     }
   }
-  console.log(someNums)
   return someNums;
 };
 
