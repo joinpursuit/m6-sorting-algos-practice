@@ -81,12 +81,12 @@ const sortWordsD = (someWords) => {
   return someWords;  
 };
 
-// sort products by name, ascending order case insensitive
+// sort products by name, ascending order case insensitive [ok]
 const sortProductNamesA = (someProducts) => {
 
   for (let i = 0; i < someProducts.length; i++) {
     for (let j = i + 1; j < someProducts.length; j++) {
-      // Assigning each product passing to caps into lower letters 
+      // Assigning each product name passing to caps into lower letters 
       let a = someProducts[i].name.toLowerCase();
       let b = someProducts[j].name.toLowerCase();
       
@@ -102,7 +102,24 @@ const sortProductNamesA = (someProducts) => {
 };
 
 // sort products by price, ascending order
-const sortProductPriceA = () => {};
+const sortProductPriceA = (someProducts) => {
+
+  for (let i = 0; i < someProducts.length; i++) {
+    for (let j = i + 1; j < someProducts.length; j++) {
+      // Assigning each product name passing to caps into lower letters 
+      let a = someProducts[i].price;
+      let b = someProducts[j].price;
+      
+      if (a > b) {
+        temp = someProducts[i];
+        someProducts[i] = someProducts[j];
+        someProducts[j] = temp;
+      }
+    }
+  }
+
+  return someProducts;
+};
 
 // sort products by price, descending order
 const sortProductPriceD = () => {};
