@@ -1,16 +1,22 @@
 const { catArt, someNums, someProducts, someWords } = require("./data/data.js");
 
 // sort numbers in ascending order
-const sortNumsA = () => {};
+const sortNumsA = (someNums) => {
+  return someNums.sort((a,b) => a-b);
+};
 
 // sort numbers in descending order
-const sortNumsD = () => {};
+const sortNumsD = (someNums) => {
+  return someNums.sort((a,b) => b-a);
+};
 
 // sort words in ascending order case sensitive
-const sortWordsA = () => {};
+const sortWordsA = (someWords) => {
+  return someWords.sort((a,b) => a < b)
+};
 
 // sort words in descending order case insensitive
-const sortWordsD = () => {};
+const sortWordsD = (someWords) => {};
 
 // sort products by name, ascending order case insensitive
 const sortProductNamesA = () => {};
