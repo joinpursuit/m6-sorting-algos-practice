@@ -23,7 +23,7 @@ const sortWordsD = (array) => {return array.sort(function(a,b){
 // sort products by name, ascending order case insensitive
 const sortProductNamesA = (array) => {
   return array.sort(function (a,b) {
-    if (a.name > b.name){
+    if (a.name < b.name){
       return -1;
     }
     if (a.name > b.name){
