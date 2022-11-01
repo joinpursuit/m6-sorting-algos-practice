@@ -120,8 +120,8 @@ const sortProductPriceA = (someProducts) => {
   return someProducts;
 };
 
-// sort products by price, descending order
-const sortProductPriceD = () => {
+// sort products by price, descending order [ok]
+const sortProductPriceD = (someProducts) => {
 
   for (let i = 0; i < someProducts.length; i++) {
     for (let j = i + 1; j < someProducts.length; j++) {
@@ -140,13 +140,63 @@ const sortProductPriceD = () => {
 };
 
 // sort products by price, then by name, ascending order
-const sortProducsPriceNameA = () => {};
+const sortProducsPriceNameA = () => {
 
-// sort catArt by designed by
-const catArtSortDesginedByA = () => {};
+
+};
+
+// sort catArt by designed by, ascending
+const catArtSortDesginedByA = (catArt) => {
+
+  for (let i = 0; i < catArt.length; i++) {
+    for (let j = i + 1; j < catArt.length; j++) {
+      // Assigning each item price in order to perform comparisons
+      let a = catArt[i].designedBy;
+      let b = catArt[j].designedBy;
+      
+      if (a > b) {
+        temp = catArt[i];
+        catArt[i] = catArt[j];
+        catArt[j] = temp;
+      }
+    }
+  }
+  return catArt;  
+};
 
 // sort catArt by price
-const catArtSortByPriceA = () => {};
+const catArtSortByPriceA = (catArt) => {
+
+  for (let i = 0; i < catArt.length; i++) {
+    for (let j = i + 1; j < catArt.length; j++) {
+      // Assigning each item price in order to perform comparisons
+      let a = catArt[i].price;
+      let b = catArt[j].price;
+
+      if(typeof catArt[i].price === "string") {
+        a = a.replace(/[^\d]+/g, '');
+      }
+
+      if(typeof catArt[j].price === "string") {
+        b = b.replace(/[^\d]+/g, '')
+      }
+      //  console.log(typeof a)
+      //  console.log(typeof b)
+       //console.log((catArt[i].price).match(/[^\d]+/g))
+      // console.log(catArt[j].price)
+      
+      // console.log(a)
+      // console.log(b)
+      
+      if (Number(a) > Number(b)) {
+        temp = catArt[i];
+        catArt[i] = catArt[j];
+        catArt[j] = temp;
+      }
+    }
+  }
+  return catArt;
+};
 
 // Create your own sort function
 // it should sort in ascending order
@@ -156,7 +206,22 @@ const catArtSortByPriceA = () => {};
 // or try to implement merge sort
 // or look up another common sort algorithm (i.e. quicksort, ) and try your own implementation
 // Bonus add another argument that would allow the function to be used for ascending or descending order
-const mySortFunction = () => {};
+const mySortFunction = (arr) => {
+
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      let a = arr[i];
+      let b = arr[j];
+
+      if (a > b) {
+        temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+      }
+    }
+  }
+  return arr;
+};
 
 module.exports = {
   sortNumsA,
